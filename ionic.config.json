@@ -1,0 +1,7 @@
+{
+  "name": "tastematch-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
