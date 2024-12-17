@@ -1,0 +1,16 @@
+@import "src/app/commons/colors.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /*background: linear-gradient(to bottom, $white, $salmon);*/
+  background-image: src("./../../assets/icon/background/background.jpg");
+}
+
+.button-container {
+  margin-top: auto;
+  padding-bottom: 20vh;
+}
