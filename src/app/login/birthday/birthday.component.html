@@ -1,0 +1,57 @@
+<div class="birthday-container">
+  <app-progress-bar [step]="5"></app-progress-bar>
+
+  <button class="back-button" (click)="goBack()">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18L9 12L15 6" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="content">
+    <h1>My<br>birthday is</h1>
+    <div class="birthday-input-container">
+      <div class="date-display">
+        <div class="digit-group year">
+          <div class="digit-container" *ngFor="let digit of displayDigits.slice(0,4); let i = index">
+            <span [class.placeholder]="!digit" [class.current]="isCurrentPosition(i)" class="digit">{{digit || 'Y'}}</span>
+            <div class="dash" [class.active]="digit" [class.current]="isCurrentPosition(i)"></div>
+          </div>
+        </div>
+        <span class="separator">/</span>
+        <div class="digit-group month">
+          <div class="digit-container" *ngFor="let digit of displayDigits.slice(4,6); let i = index">
+            <span [class.placeholder]="!digit" [class.current]="isCurrentPosition(i+4)" class="digit">{{digit || 'M'}}</span>
+            <div class="dash" [class.active]="digit" [class.current]="isCurrentPosition(i+4)"></div>
+          </div>
+        </div>
+        <span class="separator">/</span>
+        <div class="digit-group day">
+          <div class="digit-container" *ngFor="let digit of displayDigits.slice(6,8); let i = index">
+            <span [class.placeholder]="!digit" [class.current]="isCurrentPosition(i+6)" class="digit">{{digit || 'D'}}</span>
+            <div class="dash" [class.active]="digit" [class.current]="isCurrentPosition(i+6)"></div>
+          </div>
+        </div>
+      </div>
+      <input 
+        type="tel" 
+        class="birthday-input"
+        [value]="formattedDate"
+        (input)="onDateInput($event)"
+        (focus)="onFocus()"
+        maxlength="8"
+      />
+      <p class="helper-text">
+        Your age will be public
+      </p>
+    </div>
+  </div>
+
+  <button 
+    class="button-white continue-button"
+    [class.disabled]="!isDateValid"
+    [disabled]="!isDateValid"
+    (click)="navigateNext()"
+  >
+    CONTINUE
+  </button>
+</div> 

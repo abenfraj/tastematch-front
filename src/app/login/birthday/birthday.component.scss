@@ -1,0 +1,192 @@
+@import "../../../app/commons/colors.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+}
+
+.back-button {
+  position: absolute;
+  top: 48px;
+  left: 16px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.content {
+  margin-top: 120px;
+  padding: 0 60px;
+
+  h1 {
+    font-size: 38px;
+    margin-bottom: 32px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 8px;
+}
+
+.birthday-input {
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 18px;
+  outline: none;
+  letter-spacing: 1px;
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.date-display {
+  position: relative;
+  margin-top: 32px;
+  justify-content: flex-start;
+  display: flex;
+  pointer-events: none;
+
+  .digit-group {
+    display: flex;
+    gap: 8px;
+  }
+
+  .separator {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.3);
+    margin: 0 4px;
+  }
+}
+
+.digit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  .digit {
+    font-size: 24px;
+    font-weight: 500;
+    min-width: 20px;
+    text-align: center;
+    color: #000;
+
+    &.placeholder {
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .dash {
+    width: 20px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+
+    &.active {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    &.current {
+      background-color: #FF9898;
+    }
+  }
+}
+
+.helper-text {
+  text-align: left;
+  margin-top: 16px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
+}
+
+.continue-button {
+  position: absolute;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  left: 50%;
+  width: calc(100% - 80px);
+  max-width: 410px;
+  background: linear-gradient(to right, lighten($salmon, 5%), $white);
+  border: none;
+  color: $white;
+  text-transform: uppercase;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &.disabled {
+    background: #E0E0E0;
+    cursor: not-allowed;
+  }
+}
+
+.birthday-input-container {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+
+.digit-group {
+  display: flex;
+  gap: 8px;
+}
+
+.digit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  .digit {
+    font-size: 24px;
+    font-weight: 500;
+    min-width: 20px;
+    text-align: center;
+    color: #000;
+
+    &:empty, &:contains('Y'), &:contains('M'), &:contains('D') {
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .dash {
+    width: 20px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+
+    &.active {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.separator {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.3);
+  margin: 0 4px;
+}
+
+.helper-text {
+  text-align: left;
+  margin-top: 16px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
+} 

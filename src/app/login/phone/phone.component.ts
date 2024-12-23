@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { slideAnimation } from '../../shared/animations/route-animations';
 
 @Component({
   selector: 'app-phone',
   templateUrl: './phone.component.html',
-  styleUrls: ['./phone.component.scss']
+  styleUrls: ['./phone.component.scss'],
+  animations: [slideAnimation],
+  host: { '[@routeAnimations]': '' }
 })
 export class PhoneComponent {
   formattedPhoneNumber = '';

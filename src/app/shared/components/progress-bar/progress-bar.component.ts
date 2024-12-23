@@ -7,13 +7,13 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <div class="progress-bar">
-      <div class="progress-fill" [style.width.%]="progress"></div>
+      <div class="progress-fill" [style.width]="progressWidth"></div>
     </div>
   `,
   styles: [`
     .progress-bar {
       position: fixed;
-      top: 24px;
+      top: 50px;
       left: 0;
       width: 100%;
       height: 3px;
@@ -24,14 +24,15 @@ import { CommonModule } from '@angular/common';
     .progress-fill {
       height: 100%;
       background: #FF9898;
-      transition: width 0.3s ease;
+      transition: width 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
     }
   `]
 })
 export class ProgressBarComponent {
   @Input() step = 1;
   
-  get progress(): number {
-    return (this.step / 6) * 100;
+  get progressWidth(): string {
+    const percentage = (this.step / 5) * 100;
+    return `${percentage}%`;
   }
 } 

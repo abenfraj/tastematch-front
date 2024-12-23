@@ -2,13 +2,16 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { slideAnimation } from '../../shared/animations/route-animations';
 
 @Component({
   selector: 'app-code',
   templateUrl: './code.component.html',
   standalone: true,
   imports: [CommonModule],
-  styleUrls: ['./code.component.scss']
+  styleUrls: ['./code.component.scss'],
+  animations: [slideAnimation],
+  host: { '[@routeAnimations]': '' }
 })
 export class CodeComponent {
   formattedCode = '';

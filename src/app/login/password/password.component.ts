@@ -2,13 +2,16 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { slideAnimation } from '../../shared/animations/route-animations';
 
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',
   standalone: true,
   imports: [CommonModule],
-  styleUrls: ['./password.component.scss']
+  styleUrls: ['./password.component.scss'],
+  animations: [slideAnimation],
+  host: { '[@routeAnimations]': '' }
 })
 export class PasswordComponent {
   password = '';
