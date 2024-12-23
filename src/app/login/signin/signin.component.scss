@@ -9,6 +9,22 @@
   background: linear-gradient(to bottom, $light-salmon, $salmon);
 }
 
+.back-button {
+  position: absolute;
+  top: 48px;
+  left: 16px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .logo {
   width: 81%;
   max-width: 243px;
@@ -18,18 +34,34 @@
   transform: translateX(-50%);
 }
 
+.button-section {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.terms-text {
+  color: $white;
+  text-align: center;
+  font-size: 12px;
+  width: 80%;
+  max-width: 410px;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
 .button-container {
-  margin-top: auto;
   padding-bottom: 18vh;
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 80%;
   max-width: 410px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .trouble-signin {
@@ -42,4 +74,4 @@
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-}
+} 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,13 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor() {}
+  constructor(private router: Router) {}
 
-  login() {
-    console.log('Login attempt');
-  }
-
-  register() {
-    console.log('Register attempt');
+  navigateToSignin() {
+    this.router.navigate(['/signin']);
   }
 }
