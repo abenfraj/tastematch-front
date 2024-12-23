@@ -39,6 +39,7 @@
   margin: 0 auto;
   width: 100%;
   max-width: 360px;
+  margin-top: 120px;
 }
 
 .code-input {
@@ -63,6 +64,15 @@
   flex-direction: column;
   align-items: center;
   flex: 1;
+
+  &.current {
+    .digit {
+      color: $salmon;
+    }
+    .dash {
+      background-color: $salmon;
+    }
+  }
 }
 
 .digit {
@@ -77,6 +87,11 @@
   width: 100%;
   height: 2px;
   background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .continue-button {
@@ -97,4 +112,12 @@
     background: #E0E0E0;
     cursor: not-allowed;
   }
+}
+
+.helper-text {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  padding-right: 20px;
 } 

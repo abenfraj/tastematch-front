@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CodeComponent {
   formattedCode = '';
+  currentPosition = 0;
 
   get displayDigits(): string[] {
     const digits = this.formattedCode.split('');
@@ -33,6 +34,7 @@ export class CodeComponent {
     value = value.slice(0, 6);
     
     this.formattedCode = value;
+    this.currentPosition = value.length;
     input.value = this.formattedCode;
   }
 } 

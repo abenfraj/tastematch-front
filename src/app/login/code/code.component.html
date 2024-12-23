@@ -7,6 +7,7 @@
 
   <div class="content">
     <h1>My code is</h1>
+    <p class="helper-text">Enter the verification code sent to your phone</p>
     <div class="code-input-container">
       <input 
         type="tel" 
@@ -17,9 +18,11 @@
         placeholder="000000"
       />
       <div class="code-display">
-        <div class="digit-container" *ngFor="let digit of displayDigits">
+        <div class="digit-container" 
+             *ngFor="let digit of displayDigits; let i = index"
+             [class.current]="i === currentPosition">
           <span class="digit">{{digit}}</span>
-          <div class="dash"></div>
+          <div class="dash" [class.active]="digit"></div>
         </div>
       </div>
     </div>
