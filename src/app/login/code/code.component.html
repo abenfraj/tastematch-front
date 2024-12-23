@@ -32,6 +32,7 @@
     class="button-white continue-button"
     [class.disabled]="formattedCode.length < 6"
     [disabled]="formattedCode.length < 6"
+    (click)="navigateToPassword()"
   >
     CONTINUE
   </button>

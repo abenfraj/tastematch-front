@@ -14,13 +14,12 @@ export class CodeComponent {
   formattedCode = '';
   currentPosition = 0;
 
+  constructor(private location: Location, private router: Router) {}
+
   get displayDigits(): string[] {
     const digits = this.formattedCode.split('');
-    // Create array of 6 elements, fill with empty strings if needed
     return Array(6).fill('').map((_, i) => digits[i] || '');
   }
-
-  constructor(private location: Location, private router: Router) {}
 
   goBack() {
     this.location.back();
@@ -28,13 +27,16 @@ export class CodeComponent {
 
   onCodeInput(event: Event) {
     const input = event.target as HTMLInputElement;
-    let value = input.value.replace(/\D/g, ''); // Remove non-digits
-    
-    // Limit to 6 digits
+    let value = input.value.replace(/\D/g, '');
     value = value.slice(0, 6);
-    
     this.formattedCode = value;
     this.currentPosition = value.length;
     input.value = this.formattedCode;
+  }
+
+  navigateToPassword() {
+    if (this.formattedCode.length === 6) {
+      this.router.navigate(['/password']);
+    }
   }
 } 
