@@ -1,0 +1,128 @@
+@import "../../../app/commons/colors.scss";
+@import "../../../app/commons/buttons.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+}
+
+.back-button {
+  position: absolute;
+  top: 48px;
+  left: 16px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.content {
+  margin-top: 120px;
+  padding: 0 60px;
+
+  h1 {
+    font-size: 38px;
+    margin-bottom: 32px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+
+.gender-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+  position: relative;
+  width: 100%;
+  max-width: 410px;
+}
+
+.gender-button {
+  width: 100%;
+  background: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  font-size: 16px;
+  border-radius: 25px;
+
+  &.selected {
+    background: transparent;
+    border-color: $salmon;
+    color: $salmon;
+  }
+}
+
+.show-gender-option {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+
+    &:checked {
+      background-color: $salmon;
+      border-color: $salmon;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 5px;
+        height: 9px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+      }
+    }
+  }
+}
+
+.continue-button {
+  position: fixed;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 80px);
+  max-width: 410px;
+  padding: 18px 20px;
+  background: linear-gradient(to right, lighten($salmon, 5%), $white);
+  border: none;
+  color: $white;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:not(.disabled) {
+    background: linear-gradient(to right, lighten($salmon, 5%), $white);
+  }
+
+  &.disabled {
+    background: #E0E0E0;
+    cursor: not-allowed;
+  }
+}

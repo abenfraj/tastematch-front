@@ -1,0 +1,49 @@
+<div class="gender-container">
+  <app-progress-bar [step]="6"></app-progress-bar>
+
+  <button class="back-button" (click)="goBack()">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18L9 12L15 6" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="content">
+    <h1>I am a</h1>
+    
+    <div class="gender-options">
+      <button 
+        class="button-white gender-button" 
+        [class.selected]="selectedGender === 'woman'"
+        (click)="selectGender('woman')"
+      >
+        WOMAN
+      </button>
+      
+      <button 
+        class="button-white gender-button" 
+        [class.selected]="selectedGender === 'man'"
+        (click)="selectGender('man')"
+      >
+        MAN
+      </button>
+    </div>
+
+    <div class="show-gender-option">
+      <input 
+        type="checkbox" 
+        id="showGender" 
+        [(ngModel)]="showGenderOnProfile"
+      >
+      <label for="showGender">Show my gender on my profile</label>
+    </div>
+  </div>
+
+  <button 
+    class="button-white continue-button"
+    [class.disabled]="!selectedGender"
+    [disabled]="!selectedGender"
+    (click)="navigateNext()"
+  >
+    CONTINUE
+  </button>
+</div>
