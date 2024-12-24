@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
 
     .progress-fill {
       height: 100%;
-      background: linear-gradient(to right, #e48b8d, #f9ebeb);
+      background: linear-gradient(to right, #e48b8d, #edb4b5);
       transition: width 0.3s ease;
     }
   `]
