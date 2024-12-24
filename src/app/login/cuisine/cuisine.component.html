@@ -1,0 +1,39 @@
+<div class="cuisine-container">
+  <app-progress-bar [step]="7"></app-progress-bar>
+
+  <button class="back-button" (click)="goBack()">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18L9 12L15 6" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="skip-button">
+    SKIP
+  </div>
+
+  <div class="content">
+    <h1>Cuisine</h1>
+    <p class="subtitle">Tell us about you !</p>
+    <p class="question">What are your favorites types of cuisine ?</p>
+
+    <div class="cuisine-options">
+      <button 
+        *ngFor="let cuisine of cuisineOptions"
+        class="cuisine-button"
+        [class.selected]="isCuisineSelected(cuisine)"
+        (click)="toggleCuisine(cuisine)"
+      >
+        {{ cuisine }}
+      </button>
+    </div>
+  </div>
+
+  <button 
+    class="button-white continue-button"
+    [class.disabled]="selectedCuisines.length === 0"
+    [disabled]="selectedCuisines.length === 0"
+    (click)="navigateNext()"
+  >
+    CONTINUE
+  </button>
+</div> 

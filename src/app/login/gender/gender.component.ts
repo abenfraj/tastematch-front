@@ -31,11 +31,8 @@ export class GenderComponent {
 
   navigateNext() {
     if (this.selectedGender) {
-      // Store gender preferences
       localStorage.setItem('gender', this.selectedGender);
-      localStorage.setItem('showGender', this.showGenderOnProfile.toString());
-      // Navigate to next step
-      this.router.navigate(['/next-step']);
+      this.router.navigate(['/cuisine']);
     }
   }
 }
