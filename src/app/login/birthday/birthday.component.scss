@@ -61,17 +61,6 @@
   justify-content: flex-start;
   display: flex;
   pointer-events: none;
-
-  .digit-group {
-    display: flex;
-    gap: 8px;
-  }
-
-  .separator {
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.3);
-    margin: 0 4px;
-  }
 }
 
 .digit-container {
@@ -139,42 +128,11 @@
 .birthday-input-container {
   position: relative;
   width: 100%;
-  margin: 0;
 }
 
 .digit-group {
   display: flex;
   gap: 8px;
-}
-
-.digit-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-
-  .digit {
-    font-size: 24px;
-    font-weight: 500;
-    min-width: 20px;
-    text-align: center;
-    color: #000;
-
-    &:empty, &:contains('Y'), &:contains('M'), &:contains('D') {
-      color: rgba(0, 0, 0, 0.3);
-    }
-  }
-
-  .dash {
-    width: 20px;
-    height: 2px;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s ease;
-
-    &.active {
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-  }
 }
 
 .separator {
@@ -189,4 +147,15 @@
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
   line-height: 1.5;
+}
+
+.birthday-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 32px;
+  opacity: 0;
+  z-index: 3;
+  cursor: text;
 } 
