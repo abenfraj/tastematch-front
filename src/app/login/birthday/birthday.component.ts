@@ -63,7 +63,7 @@ export class BirthdayComponent {
 
   navigateNext() {
     if (this.isDateValid) {
-      this.router.navigate(['/next-step']);
+      this.router.navigate(['/gender']);
     }
   }
 } 
