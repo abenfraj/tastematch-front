@@ -12,19 +12,19 @@ import { CommonModule } from '@angular/common';
   `,
   styles: [`
     .progress-bar {
-      position: fixed;
-      top: 50px;
-      left: 0;
       width: 100%;
       height: 3px;
-      background: rgba(0, 0, 0, 0.1);
-      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 45px;
+      left: 0;
+      z-index: 2;
     }
 
     .progress-fill {
       height: 100%;
-      background: #FF9898;
-      transition: width 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+      background: linear-gradient(to right, #e48b8d, #f9ebeb);
+      transition: width 0.3s ease;
     }
   `]
 })
@@ -32,7 +32,9 @@ export class ProgressBarComponent {
   @Input() step = 1;
   
   get progressWidth(): string {
-    const percentage = (this.step / 5) * 100;
-    return `${percentage}%`;
+    if (this.step === 6) {
+      return '100%';
+    }
+    return `${((this.step - 1) * 20)}%`;
   }
 } 

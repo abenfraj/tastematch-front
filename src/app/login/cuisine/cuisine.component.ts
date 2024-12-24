@@ -45,9 +45,8 @@ export class CuisineComponent {
 
   navigateNext() {
     if (this.selectedCuisines.length > 0) {
-      // Store selected cuisines and navigate to next page
       localStorage.setItem('cuisines', JSON.stringify(this.selectedCuisines));
-      this.router.navigate(['/next-step']);
+      this.router.navigate(['/diet']);
     }
   }
 } 
