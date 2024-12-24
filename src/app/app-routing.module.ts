@@ -10,6 +10,7 @@ import { BirthdayComponent } from './login/birthday/birthday.component';
 import { GenderComponent } from './login/gender/gender.component';
 import { CuisineComponent } from './login/cuisine/cuisine.component';
 import { DietComponent } from './login/diet/diet.component';
+import { WelcomeComponent } from './login/welcome/welcome.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'birthday', component: BirthdayComponent },
   { path: 'gender', component: GenderComponent },
   { path: 'cuisine', component: CuisineComponent },
-  { path: 'diet', component: DietComponent }
+  { path: 'diet', component: DietComponent },
+  { path: 'welcome', component: WelcomeComponent }
 ];
 
 @NgModule({

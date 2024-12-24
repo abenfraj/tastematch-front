@@ -53,7 +53,7 @@ export class DietComponent {
   navigateNext() {
     if (this.selectedDiets.length > 0) {
       localStorage.setItem('diets', JSON.stringify(this.selectedDiets));
-      this.router.navigate(['/next-step']);
+      this.router.navigate(['/welcome']);
     }
   }
 } 
