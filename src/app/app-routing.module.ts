@@ -11,6 +11,9 @@ import { GenderComponent } from './login/gender/gender.component';
 import { CuisineComponent } from './login/cuisine/cuisine.component';
 import { DietComponent } from './login/diet/diet.component';
 import { WelcomeComponent } from './login/welcome/welcome.component';
+import { RestaurantNameComponent } from './login/restaurant-name/restaurant-name.component';
+import { BusinessEmailComponent } from './login/business-email/business-email.component';
+import { RestaurantAddressComponent } from './login/restaurant-address/restaurant-address.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -23,7 +26,22 @@ const routes: Routes = [
   { path: 'gender', component: GenderComponent },
   { path: 'cuisine', component: CuisineComponent },
   { path: 'diet', component: DietComponent },
-  { path: 'welcome', component: WelcomeComponent }
+  { path: 'welcome', component: WelcomeComponent },
+  {
+    path: 'restaurant-name',
+    component: RestaurantNameComponent,
+    data: { animation: 'restaurantName' }
+  },
+  {
+    path: 'business-email',
+    component: BusinessEmailComponent,
+    data: { animation: 'businessEmail' }
+  },
+  {
+    path: 'restaurant-address',
+    component: RestaurantAddressComponent,
+    data: { animation: 'restaurantAddress' }
+  }
 ];
 
 @NgModule({

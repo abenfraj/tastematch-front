@@ -50,7 +50,12 @@ export class PasswordComponent {
 
   navigateToFirstname() {
     if (this.isPasswordValid && this.doPasswordsMatch) {
-      this.router.navigate(['/firstname']);
+      const userType = localStorage.getItem('userType');
+      if (userType === 'restaurant') {
+        this.router.navigate(['/restaurant-name']);
+      } else {
+        this.router.navigate(['/firstname']);
+      }
     }
   }
 

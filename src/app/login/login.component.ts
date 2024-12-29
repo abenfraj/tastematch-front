@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private router: Router) {}
 
-  navigateToSignin() {
+  navigateToSignin(isRestaurantOwner: boolean) {
+    // Store the user type in localStorage or a service
+    localStorage.setItem('userType', isRestaurantOwner ? 'restaurant' : 'customer');
     this.router.navigate(['/signin']);
   }
 }
