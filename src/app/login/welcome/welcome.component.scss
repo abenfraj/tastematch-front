@@ -118,4 +118,11 @@
   &:not(.disabled) {
     background: linear-gradient(to right, lighten($salmon, 5%), $white);
   }
+}
+
+.restaurant-message {
+  max-width: 300px;
+  line-height: 1.5;
+  margin: 24px 24px 32px 24px;
+  text-align: center;
 } 

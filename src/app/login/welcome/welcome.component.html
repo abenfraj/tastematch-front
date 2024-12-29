@@ -11,9 +11,12 @@
     </div>
 
     <h1>Welcome to TasteMatch.</h1>
-    <p class="subtitle">A few rules that you should respect</p>
+    <p class="subtitle" *ngIf="!isRestaurant">A few rules that you should respect</p>
+    <p class="subtitle restaurant-message" *ngIf="isRestaurant">
+      Thank you for registering! Your application will be reviewed by our team. We will contact you by email or phone shortly to request the necessary documents for account verification
+    </p>
 
-    <div class="rules">
+    <div class="rules" *ngIf="!isRestaurant">
       <div class="rule">
         <div class="rule-content">
           <h3><span class="check">✓</span>Be yourself.</h3>
