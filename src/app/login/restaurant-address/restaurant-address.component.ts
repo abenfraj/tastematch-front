@@ -18,6 +18,7 @@ export class RestaurantAddressComponent {
   address: string = '';
   isFocused: boolean = false;
   showResults: boolean = false;
+  selectedFromList: boolean = false;
 
   // Example addresses for testing
   sampleAddresses = [
@@ -33,12 +34,13 @@ export class RestaurantAddressComponent {
   constructor(private location: Location, private router: Router) {}
 
   get isAddressValid(): boolean {
-    return this.address.trim().length > 0;
+    return this.address.trim().length > 0 && this.selectedFromList;
   }
 
   onAddressInput(event: Event) {
     const input = event.target as HTMLInputElement;
     this.address = input.value;
+    this.selectedFromList = false;
     this.filterAddresses();
   }
 
@@ -57,6 +59,7 @@ export class RestaurantAddressComponent {
   selectAddress(address: string) {
     this.address = address;
     this.showResults = false;
+    this.selectedFromList = true;
   }
 
   onFocus() {
@@ -76,7 +79,7 @@ export class RestaurantAddressComponent {
 
   navigateNext() {
     if (this.isAddressValid) {
-      this.router.navigate(['/next-step']);
+      this.router.navigate(['/siret-number']);
     }
   }
 

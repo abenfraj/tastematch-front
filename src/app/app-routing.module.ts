@@ -14,6 +14,7 @@ import { WelcomeComponent } from './login/welcome/welcome.component';
 import { RestaurantNameComponent } from './login/restaurant-name/restaurant-name.component';
 import { BusinessEmailComponent } from './login/business-email/business-email.component';
 import { RestaurantAddressComponent } from './login/restaurant-address/restaurant-address.component';
+import { SiretNumberComponent } from './login/siret-number/siret-number.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -41,6 +42,11 @@ const routes: Routes = [
     path: 'restaurant-address',
     component: RestaurantAddressComponent,
     data: { animation: 'restaurantAddress' }
+  },
+  {
+    path: 'siret-number',
+    component: SiretNumberComponent,
+    data: { animation: 'siretNumber' }
   }
 ];
 
