@@ -1,5 +1,4 @@
-@import "../../../app/commons/colors.scss";
-@import "../../../app/commons/buttons.scss";
+@import "src/app/commons/colors.scss";
 
 :host {
   display: flex;
@@ -36,7 +35,7 @@
   }
 }
 
-.gender-options {
+.price-options {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -46,7 +45,7 @@
   max-width: 410px;
 }
 
-.gender-button {
+.price-button {
   width: 100%;
   background: transparent;
   border: 2px solid rgba(0, 0, 0, 0.1);
@@ -55,49 +54,12 @@
   font-size: 16px;
   padding: 14px 20px;
   border-radius: 25px;
+  cursor: pointer;
 
   &.selected {
     background: transparent;
     border-color: $salmon;
     color: $salmon;
-  }
-}
-
-.show-gender-option {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 14px;
-
-  input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-
-    &:checked {
-      background-color: $salmon;
-      border-color: $salmon;
-
-      &::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 45%;
-        transform: translate(-50%, -50%) rotate(45deg);
-        width: 5px;
-        height: 9px;
-        border: solid white;
-        border-width: 0 2px 2px 0;
-      }
-    }
   }
 }
 
@@ -126,4 +88,4 @@
     background: #E0E0E0;
     cursor: not-allowed;
   }
-}
+} 

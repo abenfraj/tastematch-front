@@ -37,7 +37,7 @@ export class AddPhotosComponent {
 
   navigateNext() {
     if (this.isValid) {
-      this.router.navigate(['/next-step']);
+      this.router.navigate(['/restaurant-description']);
     }
   }
 

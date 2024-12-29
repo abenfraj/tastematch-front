@@ -16,6 +16,8 @@ import { BusinessEmailComponent } from './login/business-email/business-email.co
 import { RestaurantAddressComponent } from './login/restaurant-address/restaurant-address.component';
 import { SiretNumberComponent } from './login/siret-number/siret-number.component';
 import { AddPhotosComponent } from './login/add-photos/add-photos.component';
+import { RestaurantDescriptionComponent } from './login/restaurant-description/restaurant-description.component';
+import { PriceRangeComponent } from './login/price-range/price-range.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -53,6 +55,16 @@ const routes: Routes = [
     path: 'add-photos',
     component: AddPhotosComponent,
     data: { animation: 'addPhotos' }
+  },
+  {
+    path: 'restaurant-description',
+    component: RestaurantDescriptionComponent,
+    data: { animation: 'restaurantDescription' }
+  },
+  {
+    path: 'price-range',
+    component: PriceRangeComponent,
+    data: { animation: 'priceRange' }
   }
 ];
 
