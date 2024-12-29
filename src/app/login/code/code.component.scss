@@ -1,4 +1,5 @@
-@import "src/app/commons/colors.scss";
+@import "../../../app/commons/colors.scss";
+@import "../../../app/commons/buttons.scss";
 
 :host {
   display: flex;
@@ -25,99 +26,101 @@
 
 .content {
   margin-top: 120px;
-  padding: 0 40px;
+  padding: 0 20px;
+  max-width: 430px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 
   h1 {
     font-size: 38px;
-    margin-bottom: 32px;
+    margin-bottom: 8px;
     font-weight: 500;
+    line-height: 1.2;
+    padding-left: 20px;
+  }
+
+  .helper-text {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 40px;
+    padding-left: 20px;
   }
 }
 
 .code-input-container {
   position: relative;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 360px;
-  margin-top: 120px;
-}
+  width: 280px;
+  margin: 0 auto 24px;
 
-.code-input {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.code-display {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.digit-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-
-  &.current {
-    .digit {
-      color: $salmon;
-    }
-    .dash {
-      background-color: $salmon;
-    }
+  .code-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    opacity: 0;
+    z-index: 1;
   }
-}
 
-.digit {
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  min-height: 40px;
-  color: #000;
-}
+  .code-display {
+    display: flex;
+    justify-content: flex-start;
+    gap: 7px;
 
-.dash {
-  width: 100%;
-  height: 2px;
-  background-color: rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease;
+    .digit-container {
+      text-align: center;
+      width: 40px;
+      position: relative;
 
-  &.active {
-    background-color: rgba(0, 0, 0, 0.3);
+      .digit {
+        display: block;
+        font-size: 38px;
+        font-weight: 500;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+      }
+
+      .dash {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        background: rgba(0, 0, 0, 0.1);
+        width: 100%;
+
+        &.active {
+          background: $salmon;
+        }
+      }
+    }
   }
 }
 
 .continue-button {
   position: absolute;
-  bottom: 50%;
-  transform: translate(-50%, 50%);
+  top: 340px;
   left: 50%;
+  transform: translateX(-50%);
   width: calc(100% - 80px);
   max-width: 410px;
+  padding: 16px;
   background: linear-gradient(to right, lighten($salmon, 5%), $white);
   border: none;
   color: $white;
   text-transform: uppercase;
   font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:not(.disabled) {
+    background: linear-gradient(to right, lighten($salmon, 5%), $white);
+  }
 
   &.disabled {
     background: #E0E0E0;
     cursor: not-allowed;
   }
 }
-
-.helper-text {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.6);
-  line-height: 1.5;
-  margin-bottom: 24px;
-  padding-right: 20px;
-} 

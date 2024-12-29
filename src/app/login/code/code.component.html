@@ -1,6 +1,4 @@
 <div class="code-container">
-  <app-progress-bar [step]="2"></app-progress-bar>
-
   <button class="back-button" (click)="goBack()">
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M15 18L9 12L15 6" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -8,31 +6,53 @@
   </button>
 
   <div class="content">
-    <h1>Enter the<br>code</h1>
-    
+    <h1>My code is</h1>
+    <p class="helper-text">Enter the verification code sent to your phone</p>
+
     <div class="code-input-container">
-      <input 
-        type="tel" 
+      <input
+        type="tel"
         class="code-input"
-        [value]="code"
+        [value]="formattedCode"
         (input)="onCodeInput($event)"
-        maxlength="4"
+        maxlength="6"
+        placeholder="000000"
       />
       <div class="code-display">
-        <div class="digit-container" *ngFor="let digit of displayDigits; let i = index">
-          <span class="digit">{{digit}}</span>
-          <div class="dash" [class.active]="digit" [class.current]="isCurrentPosition(i)"></div>
+        <div class="digit-container">
+          <span class="digit">{{displayDigits[0]}}</span>
+          <div class="dash" [class.active]="isCurrentPosition(0)"></div>
+        </div>
+        <div class="digit-container">
+          <span class="digit">{{displayDigits[1]}}</span>
+          <div class="dash" [class.active]="isCurrentPosition(1)"></div>
+        </div>
+        <div class="digit-container">
+          <span class="digit">{{displayDigits[2]}}</span>
+          <div class="dash" [class.active]="isCurrentPosition(2)"></div>
+        </div>
+        <div class="digit-container">
+          <span class="digit">{{displayDigits[3]}}</span>
+          <div class="dash" [class.active]="isCurrentPosition(3)"></div>
+        </div>
+        <div class="digit-container">
+          <span class="digit">{{displayDigits[4]}}</span>
+          <div class="dash" [class.active]="isCurrentPosition(4)"></div>
+        </div>
+        <div class="digit-container">
+          <span class="digit">{{displayDigits[5]}}</span>
+          <div class="dash" [class.active]="isCurrentPosition(5)"></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <button 
-    class="continue-button"
-    [class.disabled]="!isCodeValid"
-    [disabled]="!isCodeValid"
-    (click)="navigateNext()"
-  >
-    CONTINUE
-  </button>
+    <button 
+      class="button-white continue-button"
+      [class.disabled]="code.length < 6"
+      [disabled]="code.length < 6"
+      (click)="navigateNext()"
+    >
+      CONTINUE
+    </button>
+  </div>
 </div> 
