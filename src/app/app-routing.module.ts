@@ -15,6 +15,7 @@ import { RestaurantNameComponent } from './login/restaurant-name/restaurant-name
 import { BusinessEmailComponent } from './login/business-email/business-email.component';
 import { RestaurantAddressComponent } from './login/restaurant-address/restaurant-address.component';
 import { SiretNumberComponent } from './login/siret-number/siret-number.component';
+import { AddPhotosComponent } from './login/add-photos/add-photos.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -47,6 +48,11 @@ const routes: Routes = [
     path: 'siret-number',
     component: SiretNumberComponent,
     data: { animation: 'siretNumber' }
+  },
+  {
+    path: 'add-photos',
+    component: AddPhotosComponent,
+    data: { animation: 'addPhotos' }
   }
 ];
 

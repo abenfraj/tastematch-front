@@ -51,7 +51,7 @@ export class SiretNumberComponent {
 
   navigateNext() {
     if (this.isSiretValid) {
-      this.router.navigate(['/next-step']);
+      this.router.navigate(['/add-photos']);
     }
   }
 

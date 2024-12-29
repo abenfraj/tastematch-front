@@ -1,0 +1,40 @@
+<div class="firstname-container">
+  <app-progress-bar [step]="6"></app-progress-bar>
+
+  <button class="back-button" (click)="goBack()">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18L9 12L15 6" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="content">
+    <h1>Add photos</h1>
+    <p class="helper-text">Add at least 2 photos to continue</p>
+
+    <div class="photos-grid">
+      <div class="photo-box" *ngFor="let photo of photos; let i = index">
+        <label class="photo-label">
+          <input type="file" (change)="onFileSelected($event, i)" accept="image/*">
+          <div class="photo-content" [class.has-image]="photo">
+            <img *ngIf="photo" [src]="photo" alt="Selected photo">
+            <div 
+              class="badge" 
+              [class.plus]="!photo" 
+              [class.cross]="photo"
+              (click)="photo ? removeImage(i, $event) : null"
+            ></div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <button 
+    class="button-white continue-button"
+    [class.disabled]="!isValid"
+    [disabled]="!isValid"
+    (click)="navigateNext()"
+  >
+    CONTINUE
+  </button>
+</div> 
