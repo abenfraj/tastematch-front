@@ -13,6 +13,7 @@ To get started, ensure you have the following installed:
 - **npm** (version 9+)
 - **Ionic CLI**: Install globally using `npm install -g @ionic/cli`
 - **Android Studio** (for Android development)
+- **Java JDK 17+** (for Android development)
 
 ---
 
@@ -21,8 +22,8 @@ To get started, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Doussama49/tastematch.git
-cd tastematch
+git clone https://github.com/abenfraj/tastematch-front.git
+cd tastematch-front
 ```
 
 ### 2. Install Dependencies
@@ -59,6 +60,36 @@ npm run start:mobile
 
 ---
 
+## Generating the APK
+
+To generate the APK file for Android, follow these steps:
+
+### Prerequisites
+
+- Ensure you have the **Android SDK** installed and properly configured.
+- Set the following environment variables:
+  - `ANDROID_HOME`: Path to your Android SDK installation.
+  - `JAVA_HOME`: Path to your Java Development Kit (JDK).
+  - Add the `platform-tools` and `tools` directories inside the Android SDK to your system's `PATH`.
+
+### Steps
+
+1. Build the Android project:
+   ```bash
+   ionic cap build android
+   ```
+
+2. Open the project in Android Studio:
+   ```bash
+   ionic cap open android
+   ```
+
+3. In Android Studio:
+   - Go to **Build** > **Build Bundle(s)/APK(s)** > **Build APK(s)**.
+   - The APK will be generated and can be found in the `android/app/build/outputs/apk/` directory.
+
+---
+
 ## Available Scripts
 
 Here are some of the key scripts you can use:
@@ -72,7 +103,7 @@ Here are some of the key scripts you can use:
 ## Project Structure
 
 ```
-tastematch/
+tastematch-front/
 ├── src/                # Source code
 ├── android/            # Native Android code
 ├── www/                # Web build
