@@ -26,6 +26,7 @@
 .content {
   margin-top: 120px;
   padding: 0 40px;
+  color: black;
 
   h1 {
     font-size: 38px;
@@ -44,7 +45,7 @@
 
 .country-selector {
   position: relative;
-  
+
   &::after {
     content: "▼";
     position: absolute;
@@ -117,7 +118,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   &.disabled {
-    background: #E0E0E0;
+    background: #e0e0e0;
     cursor: not-allowed;
   }
-} 
+}

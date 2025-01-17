@@ -31,6 +31,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  color: black;
 
   h1 {
     font-size: 38px;
@@ -120,7 +121,7 @@
   }
 
   &.disabled {
-    background: #E0E0E0;
+    background: #e0e0e0;
     cursor: not-allowed;
   }
 }

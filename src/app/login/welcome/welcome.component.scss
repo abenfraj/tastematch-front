@@ -8,6 +8,10 @@
   background: white;
 }
 
+.welcome-container {
+  color: black;
+}
+
 .back-button {
   position: absolute;
   top: 48px;
@@ -34,7 +38,7 @@
 
   .logo {
     margin-bottom: 6px;
-    
+
     img {
       width: 60px;
       height: 60px;
@@ -125,4 +129,4 @@
   line-height: 1.5;
   margin: 24px 24px 32px 24px;
   text-align: center;
-} 
+}
