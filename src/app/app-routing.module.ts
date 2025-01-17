@@ -18,6 +18,8 @@ import { SiretNumberComponent } from './login/siret-number/siret-number.componen
 import { AddPhotosComponent } from './login/add-photos/add-photos.component';
 import { RestaurantDescriptionComponent } from './login/restaurant-description/restaurant-description.component';
 import { PriceRangeComponent } from './login/price-range/price-range.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { RestaurantProfileComponent } from './restaurant-profile/restaurant-profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -34,42 +36,52 @@ const routes: Routes = [
   {
     path: 'restaurant-name',
     component: RestaurantNameComponent,
-    data: { animation: 'restaurantName' }
+    data: { animation: 'restaurantName' },
   },
   {
     path: 'business-email',
     component: BusinessEmailComponent,
-    data: { animation: 'businessEmail' }
+    data: { animation: 'businessEmail' },
   },
   {
     path: 'restaurant-address',
     component: RestaurantAddressComponent,
-    data: { animation: 'restaurantAddress' }
+    data: { animation: 'restaurantAddress' },
   },
   {
     path: 'siret-number',
     component: SiretNumberComponent,
-    data: { animation: 'siretNumber' }
+    data: { animation: 'siretNumber' },
   },
   {
     path: 'add-photos',
     component: AddPhotosComponent,
-    data: { animation: 'addPhotos' }
+    data: { animation: 'addPhotos' },
   },
   {
     path: 'restaurant-description',
     component: RestaurantDescriptionComponent,
-    data: { animation: 'restaurantDescription' }
+    data: { animation: 'restaurantDescription' },
   },
   {
     path: 'price-range',
     component: PriceRangeComponent,
-    data: { animation: 'priceRange' }
-  }
+    data: { animation: 'priceRange' },
+  },
+  {
+    path: 'customer-profile',
+    component: CustomerProfileComponent,
+    data: { animation: 'customerProfile' },
+  },
+  {
+    path: 'restaurant-profile',
+    component: RestaurantProfileComponent,
+    data: { animation: 'restaurantProfile' },
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
