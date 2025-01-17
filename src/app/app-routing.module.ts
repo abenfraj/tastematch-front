@@ -19,6 +19,7 @@ import { AddPhotosComponent } from './login/add-photos/add-photos.component';
 import { RestaurantDescriptionComponent } from './login/restaurant-description/restaurant-description.component';
 import { PriceRangeComponent } from './login/price-range/price-range.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { RestaurantProfileComponent } from './restaurant-profile/restaurant-profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -71,6 +72,11 @@ const routes: Routes = [
     path: 'customer-profile',
     component: CustomerProfileComponent,
     data: { animation: 'customerProfile' },
+  },
+  {
+    path: 'restaurant-profile',
+    component: RestaurantProfileComponent,
+    data: { animation: 'restaurantProfile' },
   },
 ];
 
