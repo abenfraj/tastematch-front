@@ -78,6 +78,10 @@ const routes: Routes = [
     component: RestaurantProfileComponent,
     data: { animation: 'restaurantProfile' },
   },
+  {
+    path: 'swipe',
+    loadComponent: () => import('./swipe/swipe.component').then(m => m.SwipeComponent)
+  },
 ];
 
 @NgModule({

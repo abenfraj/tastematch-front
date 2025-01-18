@@ -8,14 +8,17 @@ import { Router } from '@angular/router';
   imports: [CommonModule],
   template: `
     <div class="navbar">
-      <div class="nav-item" routerLink="/home">
-        <img [src]="currentRoute === '/home' ? 'assets/icons/home_highlighted.png' : 'assets/icons/home.png'" alt="Home">
+      <div class="nav-item" routerLink="/swipe">
+        <img [src]="currentRoute === '/swipe' ? 'assets/icons/home_highlighted.png' : 'assets/icons/home.png'" alt="Home">
       </div>
       <div class="nav-item" routerLink="/preferences">
         <img [src]="currentRoute === '/preferences' ? 'assets/icons/preferences_highlighted.png' : 'assets/icons/preferences.png'" alt="Preferences">
       </div>
       <div class="nav-item" routerLink="/search">
         <img [src]="currentRoute === '/search' ? 'assets/icons/search_highlighted.png' : 'assets/icons/search.png'" alt="Search">
+      </div>
+      <div class="nav-item" routerLink="/chat">
+        <img [src]="currentRoute === '/chat' ? 'assets/icons/chat_highlighted.png' : 'assets/icons/chat.png'" alt="Chat">
       </div>
       <div class="nav-item" routerLink="/profile">
         <img [src]="isProfileRoute ? 'assets/icons/profile_highlighted.png' : 'assets/icons/profile.png'" alt="Profile">

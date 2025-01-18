@@ -1,0 +1,47 @@
+<div class="swipe-container">
+  <div class="header">
+    <div class="logo-container">
+      <img src="assets/icons/full_tastematch.png" alt="TasteMatch" class="logo">
+    </div>
+    <img src="assets/icons/filter.png" alt="Filter" class="filter-icon">
+  </div>
+
+  <div class="card">
+    <div class="restaurant-image" [style.backgroundImage]="'url(' + restaurant.image + ')'">
+      <div class="restaurant-info">
+        <div class="restaurant-header">
+          <h2>{{restaurant.name}}</h2>
+          <div class="info-button">
+            <img src="assets/icons/info.png" alt="info" class="info-icon">
+          </div>
+          <div class="rating">
+            <img src="assets/icons/star.png" alt="rating" class="star-icon">
+            <span class="rating-value">{{restaurant.rating}}</span>
+            <span class="cuisine">{{restaurant.cuisine}}</span>
+          </div>
+        </div>
+        <div class="distance">
+          <img src="assets/icons/location.png" alt="location" class="location-icon">
+          <span>{{restaurant.distance}} kilometer away</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="action-btn">
+        <img src="assets/icons/cross.png" alt="dislike" class="action-icon">
+      </button>
+      <button class="action-btn">
+        <img src="assets/icons/undo.png" alt="undo" class="action-icon">
+      </button>
+      <button class="action-btn">
+        <img src="assets/icons/favorite.png" alt="favorite" class="action-icon">
+      </button>
+      <button class="action-btn">
+        <img src="assets/icons/like.png" alt="like" class="action-icon">
+      </button>
+    </div>
+  </div>
+
+  <app-navbar></app-navbar>
+</div>

@@ -32,6 +32,6 @@ export class WelcomeComponent {
   }
 
   onAgree() {
-    this.router.navigate(['/next-step']);
+    this.router.navigate(['/swipe']);
   }
 } 
