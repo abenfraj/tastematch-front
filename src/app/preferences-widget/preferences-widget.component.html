@@ -1,0 +1,48 @@
+<div class="restaurants-container">
+  <!-- Logo section -->
+  <div class="header">
+    <img src="assets/icons/full_tastematch.png" alt="TasteMatch" class="logo" />
+    <h1>Vos restaurants favoris</h1>
+  </div>
+
+  <!-- Carousel section -->
+  <div class="carousel-container">
+    <button class="nav-arrow left" (click)="previousSlide()">
+      <img src="/assets/icons/left-arrow.png" alt="left arrow" />
+    </button>
+
+    <div class="restaurant-cards">
+      <div class="restaurant-card" *ngFor="let restaurant of restaurants">
+        <img
+          [src]="restaurant.image"
+          [alt]="restaurant.name"
+          class="restaurant-image"
+        />
+        <div class="restaurant-info">
+          <h2>{{ restaurant.name }}</h2>
+          <div class="rating">
+            <span class="stars">{{ restaurant.rating }}</span>
+            <span class="rating-number">{{ restaurant.rating_number }}</span>
+            <span class="category">• {{ restaurant.category }}</span>
+          </div>
+          <p class="distance">
+            <img
+              src="/assets/icons/location.png"
+              alt="location"
+              class="location-icon"
+            />
+            {{ restaurant.distance }} kilomètre(s)
+          </p>
+          <button class="details-btn">EN SAVOIR PLUS</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="nav-arrow right" (click)="nextSlide()">
+      <img src="/assets/icons/right-arrow.png" alt="right arrow" />
+    </button>
+  </div>
+
+  <!-- Navbar -->
+  <app-navbar></app-navbar>
+</div>

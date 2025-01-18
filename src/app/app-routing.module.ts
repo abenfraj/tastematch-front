@@ -80,7 +80,15 @@ const routes: Routes = [
   },
   {
     path: 'swipe',
-    loadComponent: () => import('./swipe/swipe.component').then(m => m.SwipeComponent)
+    loadComponent: () =>
+      import('./swipe/swipe.component').then((m) => m.SwipeComponent),
+  },
+  {
+    path: 'preferences',
+    loadComponent: () =>
+      import('./preferences-widget/preferences-widget.component').then(
+        (m) => m.PreferencesWidgetComponent
+      ),
   },
 ];
 
