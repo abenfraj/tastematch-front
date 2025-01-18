@@ -298,6 +298,8 @@ export class SwipeComponent {
     this.currentX = 0;
     this.showLikeText = false;
     this.showDislikeText = false;
+    this.isLikeHighlighted = false;
+    this.isDislikeHighlighted = false;
     this.isAnimating = false;
   }
 
@@ -320,11 +322,13 @@ export class SwipeComponent {
   private updateSwipeState(deltaX: number) {
     const threshold = window.innerWidth * 0.15; // Seuil plus petit pour l'affichage du texte
     
-    // Afficher le texte LIKE pendant le swipe vers la droite
+    // Afficher le texte LIKE et highlight pendant le swipe vers la droite
     this.showLikeText = deltaX > threshold;
+    this.isLikeHighlighted = deltaX > threshold;
     
-    // Afficher le texte NOPE pendant le swipe vers la gauche
+    // Afficher le texte NOPE et highlight pendant le swipe vers la gauche
     this.showDislikeText = deltaX < -threshold;
+    this.isDislikeHighlighted = deltaX < -threshold;
   }
 
   constructor(private cd: ChangeDetectorRef) {}
