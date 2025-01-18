@@ -7,7 +7,21 @@
   </div>
 
   <div class="card">
-    <div class="restaurant-image" [style.backgroundImage]="'url(' + restaurant.image + ')'">
+    <div class="restaurant-image" [style.backgroundImage]="'url(' + restaurant.images[currentImageIndex] + ')'">
+      <div class="image-navigation">
+        <div class="nav-area left" (click)="previousImage()"></div>
+        <div class="nav-area right" (click)="nextImage()"></div>
+      </div>
+      
+      <div class="image-indicators">
+        <div class="indicator-container">
+          <div *ngFor="let image of restaurant.images; let i = index" 
+               class="indicator" 
+               [class.active]="i === currentImageIndex">
+          </div>
+        </div>
+      </div>
+
       <div class="restaurant-info">
         <div class="restaurant-header">
           <h2>{{restaurant.name}}</h2>
@@ -15,6 +29,9 @@
             <img src="assets/icons/info.png" alt="info" class="info-icon">
           </div>
           <div class="rating">
+            <img src="assets/icons/star.png" alt="rating" class="star-icon">
+            <img src="assets/icons/star.png" alt="rating" class="star-icon">
+            <img src="assets/icons/star.png" alt="rating" class="star-icon">
             <img src="assets/icons/star.png" alt="rating" class="star-icon">
             <span class="rating-value">{{restaurant.rating}}</span>
             <span class="cuisine">{{restaurant.cuisine}}</span>

@@ -45,6 +45,54 @@
       background-size: cover;
       background-position: center;
       position: relative;
+      transition: background-image 0.3s ease;
+
+      .image-navigation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        z-index: 1;
+
+        .nav-area {
+          flex: 1;
+          cursor: pointer;
+        }
+      }
+
+      .image-indicators {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+
+        .indicator-container {
+          display: flex;
+          gap: 8px;
+          padding: 8px 16px;
+          width: 100%;
+          justify-content: center;
+        }
+
+        .indicator {
+          width: 35px;
+          height: 8px;
+          border-radius: 4px;
+          background: rgba(255, 255, 255, 0.5);
+          transition: all 0.3s ease;
+
+          &.active {
+            background: white;
+            width: 45px;
+            border-radius: 4px;
+          }
+        }
+      }
 
       &::after {
         content: '';
@@ -52,8 +100,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        height: 50%;
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        z-index: 1;
       }
     }
 
@@ -80,7 +127,7 @@
         .rating {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 4px;
 
           .star-icon {
             width: 20px;
