@@ -1,0 +1,144 @@
+.filters-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 85%;
+  max-width: 350px;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  .filters-content {
+    max-height: 65vh;
+    overflow-y: auto;
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin: 12px 0 8px;
+      color: #333;
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+
+      .chip {
+        padding: 6px 14px;
+        border-radius: 20px;
+        border: 1px solid #ff6b6b;
+        background: white;
+        color: #ff6b6b;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+
+        &.selected {
+          background: #ff6b6b;
+          color: white;
+        }
+      }
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 15px;
+
+      .search-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 12px 12px 40px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+    }
+
+    .zone-slider {
+      margin-bottom: 15px;
+
+      .slider {
+        width: 100%;
+        margin-bottom: 10px;
+        -webkit-appearance: none;
+        height: 4px;
+        background: #ddd;
+        border-radius: 2px;
+
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #ff6b6b;
+          cursor: pointer;
+          border: none;
+        }
+
+        &::-webkit-slider-runnable-track {
+          height: 4px;
+          border-radius: 2px;
+        }
+      }
+
+      .zone-value {
+        color: #666;
+        font-size: 14px;
+      }
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+
+      .clear-btn,
+      .apply-btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .clear-btn {
+        background: white;
+        border: 1px solid #ff6b6b;
+        color: #ff6b6b;
+      }
+
+      .apply-btn {
+        background: #ff6b6b;
+        color: white;
+      }
+    }
+  }
+}
+
+// Overlay background
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 999;
+}

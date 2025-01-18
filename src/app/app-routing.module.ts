@@ -90,6 +90,11 @@ const routes: Routes = [
         (m) => m.PreferencesWidgetComponent
       ),
   },
+  {
+    path: 'filters',
+    loadComponent: () =>
+      import('./filters/filters.component').then((m) => m.FiltersComponent),
+  },
 ];
 
 @NgModule({
