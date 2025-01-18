@@ -38,6 +38,13 @@
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     position: relative;
+    transition: transform 0.3s ease;
+    cursor: grab;
+    user-select: none;
+    
+    &:active {
+      cursor: grabbing;
+    }
 
     .restaurant-image {
       width: 100%;
@@ -54,11 +61,34 @@
         right: 0;
         bottom: 0;
         display: flex;
-        z-index: 1;
+        z-index: 2;
 
         .nav-area {
-          flex: 1;
+          height: 100%;
           cursor: pointer;
+          
+          &.left {
+            width: 30%;
+          }
+          
+          &.right {
+            width: 30%;
+            margin-left: auto;
+          }
+        }
+      }
+
+      .swipe-area {
+        position: absolute;
+        top: 0;
+        left: 30%;
+        right: 30%;
+        height: 100%;
+        z-index: 3;
+        cursor: grab;
+
+        &:active {
+          cursor: grabbing;
         }
       }
 
@@ -101,6 +131,30 @@
         left: 0;
         right: 0;
         z-index: 1;
+      }
+
+      .reaction-text {
+        position: absolute;
+        width: 120px;
+        height: auto;
+        z-index: 10;
+        top: 50px;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+
+        &.visible {
+          opacity: 1;
+        }
+
+        &.like-text {
+          left: 40px;
+          transform: rotate(-15deg);
+        }
+
+        &.dislike-text {
+          right: 40px;
+          transform: rotate(15deg);
+        }
       }
     }
 
@@ -182,6 +236,7 @@
     justify-content: center;
     gap: 25px;
     padding: 0 20px;
+    z-index: 1000;
 
     .action-btn {
       background: none;
@@ -189,6 +244,8 @@
       cursor: pointer;
       transition: transform 0.2s;
       padding: 0;
+      position: relative;
+      z-index: 1000;
 
       &:hover {
         transform: scale(1.1);
@@ -197,6 +254,8 @@
       .action-icon {
         width: 65px;
         height: 65px;
+        position: relative;
+        z-index: 1000;
 
         &[alt="undo"],
         &[alt="favorite"] {
@@ -204,6 +263,38 @@
           height: 55px;
         }
       }
+    }
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-15deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(-15deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-15deg);
+  }
+}
+
+.dislike-text {
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) rotate(15deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1) rotate(15deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(15deg);
     }
   }
 }

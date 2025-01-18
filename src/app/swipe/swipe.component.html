@@ -6,16 +6,26 @@
     <img src="assets/icons/filter.png" alt="Filter" class="filter-icon">
   </div>
 
-  <div class="card">
-    <div class="restaurant-image" [style.backgroundImage]="'url(' + restaurant.images[currentImageIndex] + ')'">
+  <div #card 
+       class="card"
+       [style.transform]="cardTransform"
+       (touchstart)="onTouchStart($event)"
+       (touchmove)="onTouchMove($event)"
+       (touchend)="onTouchEnd($event)"
+       (mousedown)="onMouseDown($event)"
+       (mousemove)="onMouseMove($event)"
+       (mouseup)="onMouseUp($event)"
+       (mouseleave)="onMouseUp($event)">
+    <div class="restaurant-image" 
+         [style.backgroundImage]="'url(' + currentRestaurant.images[currentImageIndex] + ')'">
       <div class="image-navigation">
-        <div class="nav-area left" (click)="previousImage()"></div>
-        <div class="nav-area right" (click)="nextImage()"></div>
+        <div class="nav-area left" (click)="previousImage($event)"></div>
+        <div class="nav-area right" (click)="nextImage($event)"></div>
       </div>
       
       <div class="image-indicators">
         <div class="indicator-container">
-          <div *ngFor="let image of restaurant.images; let i = index" 
+          <div *ngFor="let image of currentRestaurant.images; let i = index" 
                class="indicator" 
                [class.active]="i === currentImageIndex">
           </div>
@@ -24,7 +34,7 @@
 
       <div class="restaurant-info">
         <div class="restaurant-header">
-          <h2>{{restaurant.name}}</h2>
+          <h2>{{currentRestaurant.name}}</h2>
           <div class="info-button">
             <img src="assets/icons/info.png" alt="info" class="info-icon">
           </div>
@@ -33,29 +43,42 @@
             <img src="assets/icons/star.png" alt="rating" class="star-icon">
             <img src="assets/icons/star.png" alt="rating" class="star-icon">
             <img src="assets/icons/star.png" alt="rating" class="star-icon">
-            <span class="rating-value">{{restaurant.rating}}</span>
-            <span class="cuisine">{{restaurant.cuisine}}</span>
+            <span class="rating-value">{{currentRestaurant.rating}}</span>
+            <span class="cuisine">{{currentRestaurant.cuisine}}</span>
           </div>
         </div>
         <div class="distance">
           <img src="assets/icons/location.png" alt="location" class="location-icon">
-          <span>{{restaurant.distance}} kilometer away</span>
+          <span>{{currentRestaurant.distance}} kilometer away</span>
         </div>
       </div>
+
+      <img src="assets/icons/like_text.png" 
+           alt="LIKE" 
+           class="reaction-text like-text"
+           [class.visible]="showLikeText">
+      <img src="assets/icons/nope_text.png" 
+           alt="NOPE" 
+           class="reaction-text dislike-text"
+           [class.visible]="showDislikeText">
     </div>
 
     <div class="action-buttons">
-      <button class="action-btn">
-        <img src="assets/icons/cross.png" alt="dislike" class="action-icon">
+      <button class="action-btn" (click)="dislike()">
+        <img [src]="isDislikeHighlighted ? 'assets/icons/cross_highlighted.png' : 'assets/icons/cross.png'" 
+             alt="dislike" 
+             class="action-icon">
       </button>
-      <button class="action-btn">
+      <button class="action-btn" (click)="undo()">
         <img src="assets/icons/undo.png" alt="undo" class="action-icon">
       </button>
       <button class="action-btn">
         <img src="assets/icons/favorite.png" alt="favorite" class="action-icon">
       </button>
-      <button class="action-btn">
-        <img src="assets/icons/like.png" alt="like" class="action-icon">
+      <button class="action-btn" (click)="like()">
+        <img [src]="isLikeHighlighted ? 'assets/icons/like_highlighted.png' : 'assets/icons/like.png'" 
+             alt="like" 
+             class="action-icon">
       </button>
     </div>
   </div>
