@@ -21,6 +21,7 @@ import { PriceRangeComponent } from './login/price-range/price-range.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { RestaurantProfileComponent } from './restaurant-profile/restaurant-profile.component';
 import { CustomerEmailComponent } from './login/customer-email/customer-email.component';
+import { CustomerLoginComponent } from './login/customer-login/customer-login.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -100,6 +101,11 @@ const routes: Routes = [
     path: 'customer-email',
     component: CustomerEmailComponent,
     data: { animation: 'customerEmail' },
+  },
+  {
+    path: 'customer-login',
+    component: CustomerLoginComponent,
+    data: { animation: 'customerLogin' },
   },
 ];
 

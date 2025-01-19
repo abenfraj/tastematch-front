@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent {
   constructor(private location: Location, private router: Router) {}
@@ -17,4 +17,7 @@ export class SigninComponent {
   navigateToPhone() {
     this.router.navigate(['/phone']);
   }
-} 
+  navigateToCustomerLogin() {
+    this.router.navigate(['/customer-login']);
+  }
+}
