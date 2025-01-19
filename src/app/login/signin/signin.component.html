@@ -1,7 +1,19 @@
 <div class="signin-container">
   <button class="back-button" (click)="goBack()">
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M15 18L9 12L15 6" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 18L9 12L15 6"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
     </svg>
   </button>
 
@@ -10,18 +22,21 @@
     alt="TasteMatch Logo"
     class="logo"
   />
-  
+
   <div class="button-section">
     <div class="terms-text">
-      By tapping Create Account or Sign In, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy.
+      By tapping Create Account or Sign In, you agree to our Terms. Learn how we
+      process your data in our Privacy Policy and Cookies Policy.
     </div>
 
     <div class="button-container">
-      <button class="button-outlined">SIGN IN WITH APPLE</button>
-      <button class="button-outlined">SIGN IN WITH FACEBOOK</button>
-      <button class="button-outlined" (click)="navigateToPhone()">SIGN IN WITH PHONE NUMBER</button>
+      <button class="button-outlined">Log in with Email</button>
+      <button class="button-outlined">Sign Up with Apple</button>
+      <button class="button-outlined" (click)="navigateToPhone()">
+        Sign up with phone number
+      </button>
     </div>
   </div>
 
   <a href="#" class="trouble-signin">Trouble Signing In?</a>
-</div> 
+</div>

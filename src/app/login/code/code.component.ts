@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { slideAnimation } from '../../shared/animations/route-animations';
@@ -12,7 +17,7 @@ import { slideAnimation } from '../../shared/animations/route-animations';
   templateUrl: './code.component.html',
   styleUrls: ['./code.component.scss'],
   animations: [slideAnimation],
-  host: { '[@routeAnimations]': '' }
+  host: { '[@routeAnimations]': '' },
 })
 export class CodeComponent {
   formattedCode = '';
@@ -41,7 +46,7 @@ export class CodeComponent {
   navigateNext() {
     if (this.code.length === 6) {
       localStorage.setItem('verificationCode', this.code);
-      this.router.navigate(['/password']);
+      this.router.navigate(['/customer-email']);
     }
   }
-} 
+}
