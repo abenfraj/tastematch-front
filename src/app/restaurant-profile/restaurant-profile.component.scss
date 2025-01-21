@@ -5,8 +5,13 @@
   min-height: 100vh;
   padding-bottom: 80px;
   color: #333;
+  display: flex;
+  flex-direction: column;
 
   .profile-header {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
     text-align: center;
     background: white;
     padding: 20px;
@@ -112,6 +117,24 @@
 
   .options-section {
     padding: 20px 30px;
+    max-height: calc(100vh - 550px);
+    overflow-y: auto;
+    flex: 1;
+    padding-bottom: 80px;
+    position: relative;
+    
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: #ddd;
+      border-radius: 3px;
+    }
     
     h3 {
       margin-left: 20px;
@@ -119,6 +142,13 @@
       color: #333;
       font-weight: 900;
       font-size: 20px;
+      position: sticky;
+      top: 0;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+      padding-top: 10px;
+      padding-bottom: 10px;
+      z-index: 1;
+      margin-top: 0;
     }
     
     .option-items {
@@ -126,6 +156,10 @@
       flex-direction: column;
       gap: 15px;
       align-items: center;
+      padding-bottom: 20px;
+      margin-bottom: 60px;
+      padding-top: 10px;
+      min-height: 100%;
       
       .option-item {
         background: transparent;
@@ -162,10 +196,12 @@
   }
 
   .bottom-nav {
+    flex-shrink: 0;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 10;
     display: flex;
     justify-content: space-around;
     align-items: center;
