@@ -96,6 +96,8 @@
           background: #ff6b6b;
           cursor: pointer;
           border: none;
+          position: relative;
+          top: -7px;
         }
 
         &::-webkit-slider-runnable-track {

@@ -19,7 +19,7 @@ export class FiltersComponent {
   selectedCuisines: string[] = [];
   selectedDiets: string[] = [];
   selectedPriceRanges: string[] = [];
-  zoneRange: number = 25;
+  zoneRange: number = 0;
 
   toggleSelection(item: string, array: string[]) {
     const index = array.indexOf(item);
@@ -34,7 +34,13 @@ export class FiltersComponent {
     this.selectedCuisines = [];
     this.selectedDiets = [];
     this.selectedPriceRanges = [];
-    this.zoneRange = 25;
+    this.zoneRange = 0;
+    
+    // Mettre à jour le background du slider
+    const sliderElement = document.querySelector('.slider') as HTMLInputElement;
+    if (sliderElement) {
+      sliderElement.style.background = `linear-gradient(to right, #ff6b6b 0%, #ff6b6b 0%, #ddd 0%, #ddd 100%)`;
+    }
   }
 
   close() {
