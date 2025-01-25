@@ -22,6 +22,7 @@
   <div
     #card
     class="card"
+    [class.shrunk]="isInfoExpanded"
     [style.transform]="cardTransform"
     (touchstart)="onTouchStart($event)"
     (touchmove)="onTouchMove($event)"
@@ -54,20 +55,22 @@
 
       <div class="restaurant-info">
         <div class="restaurant-header">
-          <h2>{{ currentRestaurant.name }}</h2>
-          <div class="info-button">
+          <div class="info-button" (click)="toggleInfo()">
             <img src="assets/icons/info.png" alt="info" class="info-icon" />
           </div>
-          <div class="rating">
-            <img src="assets/icons/star.png" alt="rating" class="star-icon" />
-            <img src="assets/icons/star.png" alt="rating" class="star-icon" />
-            <img src="assets/icons/star.png" alt="rating" class="star-icon" />
-            <img src="assets/icons/star.png" alt="rating" class="star-icon" />
-            <span class="rating-value">{{ currentRestaurant.rating }}</span>
-            <span class="cuisine">{{ currentRestaurant.cuisine }}</span>
+          <div class="info-content" [class.hidden]="isInfoExpanded">
+            <h2>{{ currentRestaurant.name }}</h2>
+            <div class="rating">
+              <img src="assets/icons/star.png" alt="rating" class="star-icon" />
+              <img src="assets/icons/star.png" alt="rating" class="star-icon" />
+              <img src="assets/icons/star.png" alt="rating" class="star-icon" />
+              <img src="assets/icons/star.png" alt="rating" class="star-icon" />
+              <span class="rating-value">{{ currentRestaurant.rating }}</span>
+              <span class="cuisine">{{ currentRestaurant.cuisine }}</span>
+            </div>
           </div>
         </div>
-        <div class="distance">
+        <div class="distance" [class.hidden]="isInfoExpanded">
           <img
             src="assets/icons/location.png"
             alt="location"
@@ -124,6 +127,45 @@
           class="action-icon"
         />
       </button>
+    </div>
+  </div>
+
+  <div class="comments-section" [class.expanded]="isInfoExpanded">
+    <div class="comments-content">
+      <div class="restaurant-details">
+        <h2>{{ currentRestaurant.name }} <span class="rating">{{ currentRestaurant.rating }}</span></h2>
+        <p class="address">{{ currentRestaurant.address }}</p>
+        
+        <div class="tags">
+          <span class="tag">{{ currentRestaurant.cuisine }}</span>
+          <span class="tag">Gluten-free</span>
+          <span class="tag">Vegetarian</span>
+        </div>
+        
+        <div class="price">€€ Average price</div>
+        
+        <p class="description">Upscale brasserie in a hotel serving elevated starters, mains & desserts, plus wine & cocktails.</p>
+        
+        <div class="comments-header">
+          <h3>Some Comments</h3>
+          <button class="add-review">Add review</button>
+        </div>
+        
+        <div class="comments-list">
+          <div class="comment">
+            <img src="assets/icons/default_user.png" alt="User" class="user-avatar">
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="user-name">Julien</span>
+                <div class="rating">★★★★★ <span>5.0</span></div>
+                <img src="assets/icons/google.png" alt="Google" class="platform-icon">
+              </div>
+              <p class="comment-text">Top !! I recommend the restaurant</p>
+            </div>
+          </div>
+          <!-- More comments... -->
+        </div>
+      </div>
     </div>
   </div>
 

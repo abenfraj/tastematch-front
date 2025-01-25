@@ -6,6 +6,8 @@
   flex-direction: column;
   gap: 20px;
   padding-bottom: 100px;
+  position: relative;
+  overflow: hidden;
 
   .header {
     display: flex;
@@ -32,16 +34,22 @@
   }
 
   .card {
-    flex: 1;
+    flex: none;
     background: white;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     position: relative;
-    transition: transform 0.3s ease;
+    height: calc(100vh - 230px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: grab;
     user-select: none;
+    will-change: height;
     
+    &.shrunk {
+      height: calc(45vh - 100px);
+    }
+
     &:active {
       cursor: grabbing;
     }
@@ -165,11 +173,20 @@
       right: 0;
       padding: 20px;
       color: white;
-      z-index: 1;
+      z-index: 100;
 
       .restaurant-header {
         margin-bottom: 10px;
         position: relative;
+
+        .info-content {
+          transition: opacity 0.3s ease;
+          
+          &.hidden {
+            opacity: 0;
+            pointer-events: none;
+          }
+        }
 
         h2 {
           font-size: 32px;
@@ -206,6 +223,12 @@
         gap: 8px;
         font-size: 16px;
         color: #e0e0e0;
+        transition: opacity 0.3s ease;
+        
+        &.hidden {
+          opacity: 0;
+          pointer-events: none;
+        }
 
         .location-icon {
           width: 16px;
@@ -215,13 +238,28 @@
 
       .info-button {
         position: absolute;
-        top: 8px;
+        top: 0;
         right: 0;
+        z-index: 1000;
+        pointer-events: all;
+        padding: 12px;
+        margin: -8px;
+        cursor: pointer;
         
         .info-icon {
           width: 30px;
           height: 30px;
-          cursor: pointer;
+          transition: transform 0.2s ease;
+          position: relative;
+          z-index: 1000;
+          
+          &:active {
+            transform: scale(0.9);
+          }
+          
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
     }
@@ -261,6 +299,198 @@
         &[alt="favorite"] {
           width: 55px;
           height: 55px;
+        }
+      }
+    }
+  }
+
+  .comments-section {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    right: 20px;
+    height: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    z-index: 9;
+    
+    &.expanded {
+      height: calc(50vh);
+    }
+
+    .comments-content {
+      padding: 24px;
+      
+      .restaurant-details {
+        h2 {
+          font-size: 32px;
+          font-weight: 600;
+          margin-bottom: 4px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          .rating {
+            font-size: 24px;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            
+            &::before {
+              content: '★ ★ ★ ★ ';
+              color: #FFD700;
+              font-size: 28px;
+              letter-spacing: normal;
+            }
+          }
+        }
+
+        .address {
+          color: #666;
+          margin-bottom: 16px;
+          font-size: 14px;
+        }
+
+        .tags {
+          display: flex;
+          gap: 8px;
+          margin-bottom: 12px;
+          flex-wrap: wrap;
+
+          .tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: transparent;
+            font-size: 13px;
+            font-weight: 1000;
+            color: #E48D8B;
+            border: 2.5px solid #E48D8B;
+          }
+        }
+
+        .price {
+          color: #E48D8B;
+          font-size: 13px;
+          font-weight: 1000;
+          margin-bottom: 16px;
+          display: inline-block;
+          padding: 6px 12px;
+          border-radius: 20px;
+          border: 2.5px solid #E48D8B;
+          background: transparent;
+          
+          &::before {
+            color: #E48D8B;
+            margin-right: 4px;
+            font-weight: 1000;
+          }
+        }
+
+        .description {
+          color: #333;
+          margin-bottom: 24px;
+          font-size: 13px;
+          line-height: 1.5;
+          font-style: italic;
+          text-align: center;
+          padding: 0 20px;
+        }
+
+        .comments-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 16px;
+
+          h3 {
+            font-size: 16px;
+            font-weight: 600;
+          }
+
+          .add-review {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 2.5px solid #000;
+            background: transparent;
+            color: #000;
+            font-size: 13px;
+            font-weight: 1000;
+            cursor: pointer;
+          }
+        }
+
+        .comments-list {
+          .comment {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 12px;
+            border-radius: 20px;
+            border: 1px solid #E0E0E0;
+
+            .user-avatar {
+              width: 36px;
+              height: 36px;
+              border-radius: 50%;
+              background: #E0E0E0;
+              
+              img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+            }
+
+            .comment-content {
+              flex: 1;
+
+              .comment-header {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 4px;
+
+                .user-name {
+                  font-weight: 500;
+                  font-size: 13px;
+                }
+
+                .rating {
+                  color: #FFD700;
+                  font-size: 13px;
+                  display: flex;
+                  align-items: center;
+                  
+                  span {
+                    color: #666;
+                    margin-left: 4px;
+                  }
+                }
+
+                .platform-icon {
+                  width: 16px;
+                  height: 16px;
+                  margin-left: auto;
+                  
+                  &[src*="google"] {
+                    content: url('/assets/icons/google_badge.png');
+                  }
+                  
+                  &[src*="tastematch"] {
+                    content: url('/assets/icons/tastematch_badge.png');
+                  }
+                }
+              }
+
+              .comment-text {
+                font-size: 13px;
+                color: #333;
+                margin: 0;
+              }
+            }
+          }
         }
       }
     }

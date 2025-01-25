@@ -25,6 +25,7 @@ export class SwipeComponent {
       rating: 4.7,
       cuisine: 'French',
       distance: '0.1',
+      address: '99 Av. des Champs-Élysées, 75008 Paris',
       images: [
         '/assets/samples/fouquets.png',
         '/assets/samples/fouquets2.png',
@@ -37,6 +38,7 @@ export class SwipeComponent {
       rating: 4.7,
       cuisine: 'French',
       distance: '0.1',
+      address: '228 Rue de Rivoli, 75001 Paris',
       images: [
         '/assets/samples/fouquets.png',
         '/assets/samples/fouquets2.png',
@@ -49,6 +51,7 @@ export class SwipeComponent {
       rating: 4.7,
       cuisine: 'French',
       distance: '0.1',
+      address: '112 Rue du Faubourg Saint-Honoré, 75008 Paris',
       images: [
         '/assets/samples/fouquets.png',
         '/assets/samples/fouquets2.png',
@@ -61,6 +64,7 @@ export class SwipeComponent {
       rating: 4.7,
       cuisine: 'French',
       distance: '0.1',
+      address: '15 Place Vendôme, 75001 Paris',
       images: [
         '/assets/samples/fouquets.png',
         '/assets/samples/fouquets2.png',
@@ -99,6 +103,8 @@ export class SwipeComponent {
   private isAnimating = false;
 
   showFilters = false;
+
+  isInfoExpanded = false;
 
   get currentRestaurant() {
     return this.restaurants[this.currentRestaurantIndex];
@@ -357,6 +363,12 @@ export class SwipeComponent {
 
   closeFilters() {
     this.showFilters = false;
+  }
+
+  toggleInfo() {
+    console.log('Toggle info called');
+    this.isInfoExpanded = !this.isInfoExpanded;
+    this.cd.detectChanges();
   }
 
   constructor(private cd: ChangeDetectorRef, private router: Router) {}
