@@ -107,6 +107,11 @@ const routes: Routes = [
     component: CustomerLoginComponent,
     data: { animation: 'customerLogin' },
   },
+  {
+    path: 'review',
+    loadComponent: () =>
+      import('./review/review.component').then((m) => m.ReviewComponent),
+  },
 ];
 
 @NgModule({

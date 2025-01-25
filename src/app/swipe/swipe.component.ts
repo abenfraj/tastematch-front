@@ -372,4 +372,8 @@ export class SwipeComponent {
   }
 
   constructor(private cd: ChangeDetectorRef, private router: Router) {}
+
+  openReview() {
+    this.router.navigate(['/review']);
+  }
 }
