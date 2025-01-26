@@ -1,42 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-    <div class="navbar">
-      <div class="nav-item" routerLink="/swipe">
-        <img [src]="currentRoute === '/swipe' ? 'assets/icons/home_highlighted.png' : 'assets/icons/home.png'" alt="Home">
-      </div>
-      <div class="nav-item" routerLink="/preferences">
-        <img [src]="currentRoute === '/preferences' ? 'assets/icons/preferences_highlighted.png' : 'assets/icons/preferences.png'" alt="Preferences">
-      </div>
-      <div class="nav-item" routerLink="/search">
-        <img [src]="currentRoute === '/search' ? 'assets/icons/search_highlighted.png' : 'assets/icons/search.png'" alt="Search">
-      </div>
-      <div class="nav-item" routerLink="/chat">
-        <img [src]="currentRoute === '/chat' ? 'assets/icons/chat_highlighted.png' : 'assets/icons/chat.png'" alt="Chat">
-      </div>
-      <div class="nav-item" routerLink="/profile">
-        <img [src]="isProfileRoute ? 'assets/icons/profile_highlighted.png' : 'assets/icons/profile.png'" alt="Profile">
-      </div>
-    </div>
-  `,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  profileRoute: string = '/customer-profile';
   currentRoute: string = '';
-  
-  constructor(private router: Router) {
+
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {
+    this.currentRoute = this.router.url;
     this.router.events.subscribe(() => {
       this.currentRoute = this.router.url;
     });
   }
 
-  get isProfileRoute(): boolean {
-    return this.currentRoute.includes('profile');
+  ngOnInit() {
+    this.profileRoute = this.userService.isRestaurantOwner() 
+      ? '/restaurant-profile' 
+      : '/customer-profile';
   }
-} 
+}

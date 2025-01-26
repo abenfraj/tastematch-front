@@ -13,4 +13,10 @@ export class UserService {
   getUserType(): 'customer' | 'restaurant' {
     return localStorage.getItem('userType') as 'customer' | 'restaurant';
   }
+
+  isRestaurantOwner(): boolean {
+    // Return true if the user is a restaurant owner
+    // This should be based on your actual user data
+    return false;
+  }
 } 

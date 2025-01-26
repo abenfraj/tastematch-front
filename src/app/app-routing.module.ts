@@ -22,6 +22,7 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
 import { RestaurantProfileComponent } from './restaurant-profile/restaurant-profile.component';
 import { CustomerEmailComponent } from './login/customer-email/customer-email.component';
 import { CustomerLoginComponent } from './login/customer-login/customer-login.component';
+import { FeedComponent } from './feed/feed.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -111,6 +112,21 @@ const routes: Routes = [
     path: 'review',
     loadComponent: () =>
       import('./review/review.component').then((m) => m.ReviewComponent),
+  },
+  {
+    path: 'customer-profile',
+    loadComponent: () =>
+      import('./customer-profile/customer-profile.component').then((m) => m.CustomerProfileComponent),
+  },
+  {
+    path: 'restaurant-profile',
+    loadComponent: () =>
+      import('./restaurant-profile/restaurant-profile.component').then((m) => m.RestaurantProfileComponent),
+  },
+  {
+    path: 'feed',
+    loadComponent: () =>
+      import('./feed/feed.component').then((m) => m.FeedComponent),
   },
 ];
 

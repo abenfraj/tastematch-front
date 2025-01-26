@@ -1,0 +1,54 @@
+<div class="feed-container">
+  <div class="logo">
+    <img src="assets/icons/full_tastematch.png" alt="TasteMatch">
+  </div>
+
+  <div class="feed-content">
+    <div 
+      class="video-container" 
+      *ngFor="let post of posts; let i = index"
+      [style.transform]="'translateY(' + (i - currentVideoIndex) * 100 + 'vh)'"
+      [class.active]="i === currentVideoIndex">
+      <video 
+        #videoPlayer
+        [src]="post.videoUrl" 
+        loop 
+        [autoplay]="i === currentVideoIndex"
+        muted
+        playsinline
+        preload="auto"
+        (click)="toggleVideo(post, videoPlayer)"
+      ></video>
+
+      <div class="play-button" *ngIf="post.isPaused">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 5v14l11-7z" fill="white"/>
+        </svg>
+      </div>
+
+      <div class="overlay">
+        <div class="right-sidebar">
+          <div class="action-button" (click)="toggleLike(post)">
+            <img [src]="post.isLiked ? 'assets/icons/like_feed.png' : 'assets/icons/like_feed.png'" alt="Like">
+            <span>{{ formatNumber(post.likes) }}</span>
+          </div>
+          <div class="action-button">
+            <img src="assets/icons/comment_feed.png" alt="Comment">
+            <span>{{ formatNumber(post.comments) }}</span>
+          </div>
+          <div class="action-button">
+            <img src="assets/icons/share_feed.png" alt="Share">
+            <span>Share</span>
+          </div>
+        </div>
+
+        <div class="video-info">
+          <h3>{{ post.username }}</h3>
+          <p>{{ post.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-navbar></app-navbar>
+</div>
