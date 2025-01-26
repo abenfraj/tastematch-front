@@ -1,0 +1,56 @@
+<div class="welcome-container">
+  <button class="back-button" (click)="goBack()">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18L9 12L15 6" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="content">
+    <div class="logo">
+      <img src="assets/icons/forEveryTaste_150x150px.png" alt="TasteMatch Logo" width="60" height="60">
+    </div>
+
+    <h1>Welcome to TasteMatch.</h1>
+    <p class="subtitle" *ngIf="!isRestaurant">A few rules that you should respect</p>
+    <p class="subtitle restaurant-message" *ngIf="isRestaurant">
+      Thank you for registering! Your application will be reviewed by our team. We will contact you by email or phone shortly to request the necessary documents for account verification
+    </p>
+
+    <div class="rules" *ngIf="!isRestaurant">
+      <div class="rule">
+        <div class="rule-content">
+          <h3><span class="check">✓</span>Be yourself.</h3>
+          <p>Let the world know who you are, and why you are so awesome, when it comes to food !</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-content">
+          <h3><span class="check">✓</span>Stay safe.</h3>
+          <p>Please don't post anything that goes against our policies. <span class="link">Our policy</span></p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-content">
+          <h3><span class="check">✓</span>Play it cool.</h3>
+          <p>Respect others and treat them as you would like to be treated.</p>
+        </div>
+      </div>
+
+      <div class="rule">
+        <div class="rule-content">
+          <h3><span class="check">✓</span>Be proactive.</h3>
+          <p>Like, comment and share.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button 
+    class="button-white continue-button"
+    (click)="onAgree()"
+  >
+    I AGREE
+  </button>
+</div> 

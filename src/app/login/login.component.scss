@@ -1,0 +1,45 @@
+@import "src/app/commons/colors.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: linear-gradient(to bottom, $light-salmon, $salmon);
+}
+
+.logo {
+  width: 81%;
+  max-width: 243px;
+  position: absolute;
+  top: 24vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button-container {
+  margin-top: auto;
+  padding-bottom: 18vh;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 80%;
+  max-width: 410px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.trouble-signin {
+  color: $white;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 24px;
+  width: 100%;
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+}

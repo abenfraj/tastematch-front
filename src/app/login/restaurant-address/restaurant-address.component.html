@@ -1,0 +1,55 @@
+<div class="firstname-container">
+  <app-progress-bar [step]="4"></app-progress-bar>
+
+  <button class="back-button" (click)="goBack()">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18L9 12L15 6" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="content">
+    <h1>Address of<br>the restaurant</h1>
+    <div class="search-container">
+      <div class="input-group" [class.focused]="isFocused">
+        <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <input 
+          type="text" 
+          class="name-input"
+          placeholder="Search"
+          (input)="onAddressInput($event)"
+          (focus)="onFocus()"
+          (blur)="onBlur()"
+          [value]="address"
+        />
+      </div>
+      <div class="search-results" *ngIf="showResults && filteredAddresses.length > 0">
+        <div 
+          class="result-item" 
+          *ngFor="let address of filteredAddresses"
+          (click)="selectAddress(address)"
+        >
+          <svg class="location-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 22C14 18 20 15.4183 20 10C20 5.58172 16.4183 2 12 2C7.58172 2 4 5.58172 4 10C4 15.4183 10 18 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          {{ address }}
+        </div>
+      </div>
+    </div>
+    <p class="helper-text">
+      Your address will be public
+    </p>
+  </div>
+
+  <button 
+    class="button-white continue-button"
+    [class.disabled]="!isAddressValid"
+    [disabled]="!isAddressValid"
+    (click)="navigateNext()"
+  >
+    CONTINUE
+  </button>
+</div> 

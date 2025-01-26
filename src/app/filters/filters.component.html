@@ -1,0 +1,64 @@
+<div class="overlay" (click)="close()"></div>
+<div class="filters-container">
+  <div class="filters-content">
+    <h2>Cuisine</h2>
+    <div class="filter-chips">
+      <button
+        *ngFor="let cuisine of cuisines"
+        class="chip"
+        [class.selected]="selectedCuisines.includes(cuisine)"
+        (click)="toggleSelection(cuisine, selectedCuisines)"
+      >
+        {{ cuisine }}
+      </button>
+    </div>
+
+    <h2>Diets</h2>
+    <div class="filter-chips">
+      <button
+        *ngFor="let diet of diets"
+        class="chip"
+        [class.selected]="selectedDiets.includes(diet)"
+        (click)="toggleSelection(diet, selectedDiets)"
+      >
+        {{ diet }}
+      </button>
+    </div>
+
+    <h2>Price Range</h2>
+    <div class="filter-chips">
+      <button
+        *ngFor="let price of priceRanges"
+        class="chip"
+        [class.selected]="selectedPriceRanges.includes(price)"
+        (click)="toggleSelection(price, selectedPriceRanges)"
+      >
+        {{ price }}
+      </button>
+    </div>
+
+    <h2>Address</h2>
+    <div class="search-box">
+      <img src="assets/icons/search.png" alt="Search" class="search-icon" />
+      <input type="text" placeholder="Search" />
+    </div>
+
+    <h2>Zone</h2>
+    <div class="zone-slider">
+      <input
+        type="range"
+        [(ngModel)]="zoneRange"
+        min="0"
+        max="50"
+        class="slider"
+        (input)="updateSliderBackground($event)"
+      />
+      <span class="zone-value">{{ zoneRange }} Km</span>
+    </div>
+
+    <div class="button-group">
+      <button class="clear-btn" (click)="clearAll()">Clear all</button>
+      <button class="apply-btn" (click)="applyFilters()">Apply</button>
+    </div>
+  </div>
+</div>

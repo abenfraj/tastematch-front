@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TasteMatch</string>
+    <string name="title_activity_main">TasteMatch</string>
+    <string name="package_name">com.tastematch.app</string>
+    <string name="custom_url_scheme">com.tastematch.app</string>
+</resources>

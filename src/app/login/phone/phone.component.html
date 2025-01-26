@@ -1,0 +1,54 @@
+<div class="phone-container">
+  <button class="back-button" (click)="goBack()">
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 18L9 12L15 6"
+        stroke="black"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </button>
+
+  <div class="content">
+    <h1>My number is</h1>
+    <div class="input-group">
+      <div class="country-selector">
+        <select class="country-code">
+          <option value="33">FR +33</option>
+        </select>
+      </div>
+      <input
+        type="tel"
+        placeholder="1 23 45 67 89"
+        class="phone-input"
+        [value]="formattedPhoneNumber"
+        (input)="onPhoneInput($event)"
+        maxlength="13"
+      />
+    </div>
+    <p class="terms-text">
+      We will send a text with a verification code. Message and data rates may
+      apply.
+      <a href="#" class="bold-link"
+        >Learn what happens when your number changes.</a
+      >
+    </p>
+  </div>
+
+  <button
+    class="button-white continue-button"
+    [class.disabled]="!isPhoneValid"
+    [disabled]="!isPhoneValid"
+    (click)="navigateToCode()"
+  >
+    CONTINUE
+  </button>
+</div>

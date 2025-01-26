@@ -1,0 +1,14 @@
+<div class="navbar">
+  <div class="nav-item" routerLink="/swipe">
+    <img [src]="currentRoute === '/swipe' ? 'assets/icons/home_highlighted.png' : 'assets/icons/home.png'" alt="Home">
+  </div>
+  <div class="nav-item" routerLink="/preferences">
+    <img [src]="currentRoute === '/preferences' ? 'assets/icons/preferences_highlighted.png' : 'assets/icons/preferences.png'" alt="Preferences">
+  </div>
+  <div class="nav-item" routerLink="/feed">
+    <img [src]="currentRoute === '/feed' ? 'assets/icons/search_highlighted.png' : 'assets/icons/search.png'" alt="Feed">
+  </div>
+  <div class="nav-item" [routerLink]="profileRoute">
+    <img [src]="currentRoute === profileRoute ? 'assets/icons/profile_highlighted.png' : 'assets/icons/profile.png'" alt="Profile">
+  </div>
+</div>
